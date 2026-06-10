@@ -1,0 +1,41 @@
+{
+  "substrate": "REAL: commpass.csv",
+  "k": 5,
+  "rows": [
+    {
+      "model": "cox_ph",
+      "cindex": 0.7368,
+      "ci_lo": 0.7022,
+      "ci_hi": 0.7711,
+      "n": 781
+    },
+    {
+      "model": "cox_elasticnet",
+      "cindex": 0.727,
+      "ci_lo": 0.6938,
+      "ci_hi": 0.7609,
+      "n": 781
+    },
+    {
+      "model": "random_survival_forest",
+      "cindex": 0.7202,
+      "ci_lo": 0.6796,
+      "ci_hi": 0.7554,
+      "n": 781
+    },
+    {
+      "model": "gradient_boosted_survival",
+      "cindex": 0.6955,
+      "ci_lo": 0.6567,
+      "ci_hi": 0.7303,
+      "n": 781
+    },
+    {
+      "model": "program_basin",
+      "cindex": 0.699,
+      "ci_lo": 0.6588,
+      "ci_hi": 0.7418,
+      "n": 781
+    }
+  ]
+}

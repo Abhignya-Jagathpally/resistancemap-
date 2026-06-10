@@ -1,0 +1,19 @@
+key,year,claim,method_family,informs_component,url
+PANGEA,2023,"landmark Cox on time-varying lab trajectories (M-protein, FLC ratio, creatinine, hemoglobin) predicts MGUS/SMM->MM progression",landmark_cox,baseline+gap,https://www.thelancet.com/journals/lanhae/article/PIIS2352-3026(22)00386-6/fulltext
+PANGEA_2.0,2026,"dynamic biomarker risk model in 2270 SMM patients outperforms 20/2/20 and IMWG (C-stat 0.69-0.84)",landmark_cox,baseline+gap,https://www.nature.com/articles/s41591-026-04304-x
+Ferle,2025,"LSTM+CRBM forecasts MM progression events from routine blood work (AUROC 0.88; 0.65 at 12mo), externally validated on GMMG-MM5",rnn_density,baseline+gap,https://www.nature.com/articles/s41746-025-01636-9
+mmSYGNAL,2025,"curated transcriptional programs (141 regulon-programs, ~25 states) risk-stratify MM and beat ISS/cytogenetics across 4 cohorts",curated_signature,program_scores,https://www.nature.com/articles/s41416-025-02987-6
+SCOPE,2024,"transformer jointly predicts PFS/OS/AE and forecasts biomarkers in NDMM (n=703) and RRMM (n=720), beating ISS",transformer,baseline,https://www.nature.com/articles/s41746-024-01189-3
+DrugFormer,2024,"graph-enhanced transformer LLM predicts single-cell drug resistance in refractory MM and AML scRNA-seq",sc_transformer,resistance_states,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11516065/
+CancerFoundation,2024,"scRNA-seq foundation model trained only on malignant cells; improves zero-shot drug-response and survival prediction",foundation_model,resistance_states,https://www.biorxiv.org/content/10.1101/2024.11.01.621087v1
+MIOFlow,2022,"Neural-ODE + geodesic autoencoder + optimal transport interpolates single-cell population dynamics from snapshots",optimal_transport,basin_sde,https://arxiv.org/abs/2206.14928
+MIOFlow_2.0,2026,"unified manifold-learning + OT + neural-differential-equation framework for spatially-conditioned stochastic cellular dynamics",optimal_transport,basin_sde,https://arxiv.org/abs/2603.22564
+PHATE,2019,"diffusion-potential embedding preserves branching/progression structure in high-dimensional single-cell data",manifold_learning,latent_geometry,https://www.nature.com/articles/s41587-019-0336-3
+T-PHATE,2023,"temporal multi-view PHATE adds autocorrelation affinity to denoise time-series and recover state trajectories",manifold_learning,latent_geometry,https://pmc.ncbi.nlm.nih.gov/articles/PMC10487346/
+Waddington-OT,2019,"optimal transport over scRNA-seq time course infers ancestor-descendant fate trajectories (315k cells, reprogramming)",optimal_transport,basin_sde,https://www.cell.com/cell/fulltext/S0092-8674(19)30039-X
+Cox_1972,1972,"proportional-hazards semi-parametric regression for censored failure times via partial likelihood",survival_foundation,baseline,https://rss.onlinelibrary.wiley.com/doi/10.1111/j.2517-6161.1972.tb00899.x
+RandomSurvivalForests,2008,"random-forest ensemble with survival splitting rules for right-censored data",survival_foundation,baseline,https://projecteuclid.org/journals/annals-of-applied-statistics/volume-2/issue-3/Random-survival-forests/10.1214/08-AOAS169.full
+ConformalPrediction_Vovk,2022,"conformal predictors give distribution-free, provably-valid prediction sets wrapping any ML method",uncertainty,calibration,https://link.springer.com/book/10.1007/978-3-031-06649-8
+MMRF_CoMMpass,2021,"longitudinal WGS/WES/RNA-seq + 3-monthly clinical data on 1143 NDMM patients; largest MM genomic cohort",dataset,data_source,https://registry.opendata.aws/mmrf-commpass/
+ImmuneAtlas_WashU,2026,"single-cell atlas of 1.4M bone-marrow cells from 337 NDMM links immune states (dysfunctional T cells, SASP) to early relapse",sc_atlas,microenvironment,https://www.nature.com/articles/s43018-025-01072-4
+IMWG_Kumar,2016,"IMWG consensus response and MRD-negativity criteria (NGS/NGF, <1e-5) define MM endpoints",clinical_criteria,endpoint_definition,https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(16)30206-6/abstract

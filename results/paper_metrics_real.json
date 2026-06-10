@@ -1,0 +1,79 @@
+{
+  "endpoint": "overall_survival (GDC MMRF-COMMPASS open tier)",
+  "n_patients": 781,
+  "n_events": 161,
+  "k_folds": 5,
+  "features": [
+    "age_z",
+    "sex_male",
+    "iss_stage",
+    "proliferation",
+    "proteasome_UPR",
+    "stemness",
+    "immune_microenv",
+    "mmsygnal_like"
+  ],
+  "rows": [
+    {
+      "model": "cox_ph",
+      "cindex": 0.7369,
+      "ci_lo": 0.7004,
+      "ci_hi": 0.7712,
+      "ibs": 0.1288,
+      "td_auc": 0.7486,
+      "ece_365d": 0.0141,
+      "ece_730d": 0.0519,
+      "n": 781
+    },
+    {
+      "model": "cox_elasticnet",
+      "cindex": 0.7274,
+      "ci_lo": 0.6907,
+      "ci_hi": 0.7622,
+      "ibs": 0.13,
+      "td_auc": 0.7404,
+      "ece_365d": 0.0131,
+      "ece_730d": 0.0408,
+      "n": 781
+    },
+    {
+      "model": "random_survival_forest",
+      "cindex": 0.7209,
+      "ci_lo": 0.6815,
+      "ci_hi": 0.7572,
+      "ibs": 0.129,
+      "td_auc": 0.7457,
+      "ece_365d": 0.0049,
+      "ece_730d": 0.0347,
+      "n": 781
+    },
+    {
+      "model": "gradient_boosted_survival",
+      "cindex": 0.6959,
+      "ci_lo": 0.6568,
+      "ci_hi": 0.7331,
+      "ibs": 0.1521,
+      "td_auc": 0.7052,
+      "ece_365d": 0.0468,
+      "ece_730d": 0.0682,
+      "n": 781
+    },
+    {
+      "model": "program_basin",
+      "cindex": 0.6983,
+      "ci_lo": 0.6588,
+      "ci_hi": 0.7396,
+      "ibs": 0.1445,
+      "td_auc": 0.7026,
+      "ece_365d": 0.0263,
+      "ece_730d": 0.0301,
+      "n": 781
+    }
+  ],
+  "governance": {
+    "claim": "novel_model_beats_baselines",
+    "status": "BLOCKED",
+    "rule": "program_basin C-index CI-lower must exceed best baseline 0.737",
+    "best_baseline_cindex": 0.7369
+  }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "claim": "pk_inverse_recovers_signal",
+    "status": "GRANTED",
+    "rationale": "PK deconvolution recovers production R^2>0.9"
+  },
+  {
+    "claim": "hazard_is_mechanistic_and_monotone",
+    "status": "GRANTED",
+    "rationale": "higher patient risk -> higher basin-escape hazard"
+  },
+  {
+    "claim": "novel_model_beats_baselines",
+    "status": "BLOCKED",
+    "rationale": "novel-model C-index CI-lower must exceed best baseline (0.676)"
+  }
+]

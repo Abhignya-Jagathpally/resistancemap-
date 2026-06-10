@@ -1,0 +1,7 @@
+[
+  {
+    "claim": "novel_model_beats_baselines",
+    "status": "BLOCKED",
+    "rationale": "program_basin CV C-index CI-lower must exceed best baseline C=0.737"
+  }
+]

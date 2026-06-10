@@ -1,0 +1,35 @@
+{
+  "substrate": "SYNTHETIC SMOKE TEST - not a scientific result",
+  "rows": [
+    {
+      "model": "cox_ph",
+      "cindex": 0.6762240100725165,
+      "ci_lo": 0.6359516534359517,
+      "ci_hi": 0.7134860501902086
+    },
+    {
+      "model": "cox_elasticnet",
+      "cindex": 0.6716984426493403,
+      "ci_lo": 0.6308902493744363,
+      "ci_hi": 0.709819405709156
+    },
+    {
+      "model": "random_survival_forest",
+      "cindex": 0.6627046855274622,
+      "ci_lo": 0.6251725857367282,
+      "ci_hi": 0.7029106890084043
+    },
+    {
+      "model": "gradient_boosted_survival",
+      "cindex": 0.6436505408336981,
+      "ci_lo": 0.6032815857127664,
+      "ci_hi": 0.6852121464378068
+    },
+    {
+      "model": "program_basin (NOVEL)",
+      "cindex": 0.6422420666827857,
+      "ci_lo": 0.6025453117346663,
+      "ci_hi": 0.6892647607355027
+    }
+  ]
+}

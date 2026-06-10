@@ -1,0 +1,18 @@
+data:
+  primary: gdc_open_commpass
+  gdc_open_s3: "s3://gdc-mmrf-commpass-phs000748-2-open"      # public, no AWS account
+  features: [age_z, iss_stage, sex_male, prog_score_1, prog_score_2, prog_score_3]
+  duration_col: duration
+  event_col: event
+survival:
+  cv: patient_disjoint
+  test_frac: 0.30
+  bootstrap_B: 400
+model:
+  latent_dim: 8
+  pk_half_lives_days: {IgG: 21.0, FLC_kappa: 0.17, beta2_microglobulin: 0.06, albumin: 19.0}
+  basin_D: 0.12
+governance:
+  require_ci_lower_beats_best_baseline: true   # "beats SOTA" stays BLOCKED unless proven
+  max_ece: 0.10
+  forbid_endpoints: [cellline_ic50]            # IC50 != clinical resistance

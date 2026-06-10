@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+data/raw/
+*.parquet
+*.h5ad
+results/*.png
+!results/fig_paper_main.png
+.DS_Store
