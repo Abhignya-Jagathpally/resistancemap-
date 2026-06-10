@@ -6,4 +6,5 @@ data/raw/
 *.h5ad
 results/*.png
 !results/fig_paper_main.png
+!results/fig_sota_benchmark.png
 .DS_Store
