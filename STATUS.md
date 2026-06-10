@@ -1,6 +1,73 @@
 # Real-vs-pending ledger (single source of truth for claims)
 
+## SOTA benchmark (PFS, mmSYGNAL substrate) — 2026-06-10
+**PRIMARY endpoint.** Source: `results/sota_comparison.json` (mirror `results/sota_table.md`);
+narrative in `docs/RESULTS_LANE1.md`. MMRF-CoMMpass IA12, mmSYGNAL program-activity substrate,
+IMWG **PFS**, **N=769 / 323 events**, 5-fold patient-disjoint CV.
+
+**Leakage audit** (`leakage_audit`): honest published bar = gep70 0.6242 / sky92 0.620;
+**GuanScore in-sample C-index = 1.000 → flagged `is_leaky=true`, EXCLUDED** (re-encodes the label,
+not a predictor); risk_auc 0.8462 also excluded as mmSYGNAL-internal.
+
+| Model | C-index (95% CI) | IBS↓ | td-AUC↑ | ECE@1y | ECE@2y |
+|---|---|---|---|---|---|
+| gep70 (SOTA, honest bar) | 0.624 [0.589, 0.659] | 0.1769 | 0.6452 | 0.0149 | 0.0656 |
+| sky92 (SOTA, honest bar) | 0.620 [0.586, 0.655] | 0.1806 | 0.6472 | 0.0180 | 0.0537 |
+| Cox (prog+clin) | 0.632 [0.599, 0.667] | 0.1818 | 0.6593 | 0.0476 | 0.0489 |
+| RSF (prog+clin) | 0.631 [0.597, 0.665] | 0.1792 | 0.6611 | 0.0211 | 0.0586 |
+| GBS (prog+clin) | 0.643 [0.609, 0.675] | 0.1772 | 0.6772 | 0.0238 | 0.0591 |
+| **Stacked (+gep70+sky92)** | **0.644 [0.610, 0.678]** | **0.1765** | **0.6806** | 0.0473 | 0.0568 |
+| ResistanceBasin-LR (novel) | 0.482 [0.448, 0.516] | 0.1931 | 0.4976 | 0.0113 | 0.0612 |
+
+- **Honest verdict — PARITY, not a win.** Best honest model Stacked 0.644 [0.610, 0.678] vs gep70
+  0.624 [0.589, 0.659] / sky92 0.620 [0.586, 0.655]: **CIs overlap → comparable discrimination, NOT
+  CI-separated.** No SOTA C-index claimed.
+- **PH holds on baseline** (`non_ph_test`): Grambsch–Therneau **0/20** covariate violations →
+  the ~0.62–0.64 ceiling is a **modality** property (every method shares the band), not a method
+  limit. The novel PH-free model has no edge and **collapses to chance (C=0.482)** — honest negative.
+- **Novel vs gep70 paired bootstrap** (B=1500, `paired_tests`): ΔC-index −0.142, 95% CI
+  [−0.193, −0.093], p<0.001 (worse); ΔIBS +0.016, 95% CI [+0.008, +0.023], p<0.001 (worse). No novel win.
+- **Where the non-PH signal lives:** treatment trajectory — n_lines violates PH at **χ²=14.7,
+  p=1e-4** (`docs/LANE2_TREATMENT_NONPH.md`); motivates treatment-conditioned PH-free modeling
+  (counting-process / landmark, immortal-time-safe). Immune fusion is the access-gated next axis
+  (`docs/PATH_A_IMMUNE_FUSION.md`; Zenodo restricted + VLAB controlled — scoped, not claimed).
+- **Governance: `novel_model_beats_baselines` BLOCKED** — paired tests show the novel model is worse;
+  parity is the honest, submittable outcome. (OS secondary run below is also BLOCKED, best_baseline
+  0.7369.)
+
+## Lane #2 — treatment-conditioned non-PH (landmark, immortal-time-safe) — 2026-06-10
+Source: `results/lane2/landmark_results.json` (mirror `landmark_results.md`, fig `fig_lane2_landmark.png`);
+plan in `docs/LANE2_TREATMENT_NONPH.md`. Cohort = mmSYGNAL IA12 ∩ open `treatments.tsv`, **n=712 / 311 events**.
+Forward td-AUC at each landmark (mean±std over patient-disjoint folds); time re-origined at L (immortal-time-safe):
+
+| Landmark | static_cox | timevarying_cox (+treatment Z(L)) | treatment_basin |
+|---|---|---|---|
+| 180 d | 0.644±0.063 | **0.656±0.065** | 0.500 (collapsed) |
+| 365 d | 0.572±0.068 | **0.582±0.068** | 0.500 (collapsed) |
+| 730 d | 0.518±0.033 | 0.495±0.016 | 0.500 (collapsed) |
+
+- **Gate `treatment_nonph_beats_static`: PASS (narrow, honest).** Time-varying treatment covariates beat
+  static on forward td-AUC at **L=365** with paired-fold bootstrap **Δ=+0.0097, CI [+0.0036, +0.0143]**
+  (100% folds positive); borderline at L=180; small loss by L=730 (sparse, n_events≈84). The win is real
+  and immortal-time-safe but **modest (~+0.01)**.
+- **Mechanism confirmed:** Grambsch–Therneau `n_lines` violates PH (χ²=19.1, p=1.2e-5); clinical baseline
+  0/10 (PH holds). The non-PH structure is treatment-driven, on open data.
+- **PH-free `treatment_basin` collapses** to a single basin (td-AUC=0.500) at every landmark — same failure
+  mode as ResistanceBasin-LR; the partial-log-rank objective finds no stable multi-basin structure on this
+  wide low-signal substrate. Reported plainly, not hidden. 8/8 Lane #2 unit tests pass.
+
+## Interpretability — what drives the model's PFS risk — 2026-06-10
+Source: `results/interpretability/interpretability.json` + 5 figures; narrative `docs/RESULTS_INTERPRETABILITY.md`.
+GBS(prog+clin), N=769/323 ev, OOF C-index 0.643. Real permutation importance / KM / Fisher; no fabrication.
+- **Top risk driver = ISS** (C-index drop 0.0334, ~2× any program); discrimination otherwise spreads across a
+  long tail of weakly-predictive programs — **no single "resistance program."**
+- **Risk tertiles** (median PFS **1436 / 914 / 715 d**, log-rank **p=4.8e-12**): high tertile enriched (Fisher)
+  for **WHSC1 19.9% vs 10.5% (p=5e-4)**, **FGFR3 15.6% vs 7.2% (p=5e-4)** [both t(4;14)], **CCND1 (p=3e-3)**
+  [t(11;14)], **amp1q (p=3e-3)**; ISS mean 1.51→2.11→2.33; **first-line drug class flat across tertiles** →
+  separation is disease biology, not a regimen confound. 2-yr ECE = 0.034 (well-calibrated).
+
 ## REAL GDC-OPEN RUN (2026-06-10) — MMRF-CoMMpass, overall survival
+**SECONDARY endpoint** (separate, lower-event-count OS run; NOT the PFS primary above).
 Source: `ResistanceMap/data/raw/mmrf_commpass/{clinical,gene_expression}.tsv` (GDC open tier,
 project phs000748). Builder `scripts/build_commpass_from_gdc_tsv.py` → `data/processed/commpass.csv`
 (781 patients with RNA+clinical, **161 deaths**, 8 features = age_z/sex/ISS + 5 RNA program scores;

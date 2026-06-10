@@ -1,0 +1,2290 @@
+{
+  "model": "GBS(prog+clin) GradientBoostingSurvivalAnalysis (n_estimators=300, max_depth=2, lr=0.05, subsample=0.8)",
+  "endpoint": "PFS (MMRF-CoMMpass IA12, days)",
+  "n_patients": 769,
+  "n_events": 323,
+  "n_programs": 141,
+  "n_clinical": 10,
+  "k_folds": 5,
+  "oof_cindex": {
+    "point": 0.6427,
+    "ci_lo": 0.6089,
+    "ci_hi": 0.6752,
+    "mean_fold": 0.647,
+    "per_fold": [
+      0.6486,
+      0.657,
+      0.6815,
+      0.5854,
+      0.6624
+    ]
+  },
+  "permutation_importance": {
+    "method": "held-out C-index drop (sksurv concordance), 10 repeats, seed=0, fold-0 test split",
+    "base_cindex": 0.6486,
+    "n_test": 154,
+    "ranked": [
+      {
+        "rank": 1,
+        "feature": "ISS",
+        "label": "ISS",
+        "block": "clinical",
+        "importance": 0.03343,
+        "importance_std": 0.01071
+      },
+      {
+        "rank": 2,
+        "feature": 71,
+        "label": "Program_071",
+        "block": "program",
+        "importance": 0.01652,
+        "importance_std": 0.00494
+      },
+      {
+        "rank": 3,
+        "feature": 8,
+        "label": "Program_008",
+        "block": "program",
+        "importance": 0.01466,
+        "importance_std": 0.0045
+      },
+      {
+        "rank": 4,
+        "feature": 84,
+        "label": "Program_084",
+        "block": "program",
+        "importance": 0.00992,
+        "importance_std": 0.00302
+      },
+      {
+        "rank": 5,
+        "feature": 112,
+        "label": "Program_112",
+        "block": "program",
+        "importance": 0.0088,
+        "importance_std": 0.00448
+      },
+      {
+        "rank": 6,
+        "feature": 44,
+        "label": "Program_044",
+        "block": "program",
+        "importance": 0.00797,
+        "importance_std": 0.00109
+      },
+      {
+        "rank": 7,
+        "feature": 53,
+        "label": "Program_053",
+        "block": "program",
+        "importance": 0.00767,
+        "importance_std": 0.00561
+      },
+      {
+        "rank": 8,
+        "feature": 80,
+        "label": "Program_080",
+        "block": "program",
+        "importance": 0.00689,
+        "importance_std": 0.00159
+      },
+      {
+        "rank": 9,
+        "feature": 69,
+        "label": "Program_069",
+        "block": "program",
+        "importance": 0.00657,
+        "importance_std": 0.00662
+      },
+      {
+        "rank": 10,
+        "feature": 109,
+        "label": "Program_109",
+        "block": "program",
+        "importance": 0.00635,
+        "importance_std": 0.00097
+      },
+      {
+        "rank": 11,
+        "feature": 63,
+        "label": "Program_063",
+        "block": "program",
+        "importance": 0.00613,
+        "importance_std": 0.00597
+      },
+      {
+        "rank": 12,
+        "feature": 110,
+        "label": "Program_110",
+        "block": "program",
+        "importance": 0.00581,
+        "importance_std": 0.00898
+      },
+      {
+        "rank": 13,
+        "feature": 10,
+        "label": "Program_010",
+        "block": "program",
+        "importance": 0.00541,
+        "importance_std": 0.00382
+      },
+      {
+        "rank": 14,
+        "feature": 49,
+        "label": "Program_049",
+        "block": "program",
+        "importance": 0.00507,
+        "importance_std": 0.00225
+      },
+      {
+        "rank": 15,
+        "feature": 92,
+        "label": "Program_092",
+        "block": "program",
+        "importance": 0.00507,
+        "importance_std": 0.00227
+      },
+      {
+        "rank": 16,
+        "feature": 127,
+        "label": "Program_127",
+        "block": "program",
+        "importance": 0.00448,
+        "importance_std": 0.00139
+      },
+      {
+        "rank": 17,
+        "feature": 26,
+        "label": "Program_026",
+        "block": "program",
+        "importance": 0.00311,
+        "importance_std": 0.0022
+      },
+      {
+        "rank": 18,
+        "feature": 52,
+        "label": "Program_052",
+        "block": "program",
+        "importance": 0.00238,
+        "importance_std": 0.00134
+      },
+      {
+        "rank": 19,
+        "feature": 124,
+        "label": "Program_124",
+        "block": "program",
+        "importance": 0.00235,
+        "importance_std": 0.00218
+      },
+      {
+        "rank": 20,
+        "feature": 43,
+        "label": "Program_043",
+        "block": "program",
+        "importance": 0.0023,
+        "importance_std": 0.00071
+      },
+      {
+        "rank": 21,
+        "feature": 48,
+        "label": "Program_048",
+        "block": "program",
+        "importance": 0.00223,
+        "importance_std": 0.00085
+      },
+      {
+        "rank": 22,
+        "feature": 67,
+        "label": "Program_067",
+        "block": "program",
+        "importance": 0.00213,
+        "importance_std": 0.00505
+      },
+      {
+        "rank": 23,
+        "feature": 128,
+        "label": "Program_128",
+        "block": "program",
+        "importance": 0.00203,
+        "importance_std": 0.00513
+      },
+      {
+        "rank": 24,
+        "feature": 54,
+        "label": "Program_054",
+        "block": "program",
+        "importance": 0.00199,
+        "importance_std": 0.00044
+      },
+      {
+        "rank": 25,
+        "feature": 82,
+        "label": "Program_082",
+        "block": "program",
+        "importance": 0.00193,
+        "importance_std": 0.00188
+      },
+      {
+        "rank": 26,
+        "feature": 96,
+        "label": "Program_096",
+        "block": "program",
+        "importance": 0.00191,
+        "importance_std": 0.00083
+      },
+      {
+        "rank": 27,
+        "feature": 85,
+        "label": "Program_085",
+        "block": "program",
+        "importance": 0.00191,
+        "importance_std": 0.00191
+      },
+      {
+        "rank": 28,
+        "feature": 105,
+        "label": "Program_105",
+        "block": "program",
+        "importance": 0.00189,
+        "importance_std": 0.0018
+      },
+      {
+        "rank": 29,
+        "feature": 57,
+        "label": "Program_057",
+        "block": "program",
+        "importance": 0.00177,
+        "importance_std": 0.00202
+      },
+      {
+        "rank": 30,
+        "feature": 140,
+        "label": "Program_140",
+        "block": "program",
+        "importance": 0.00174,
+        "importance_std": 0.00361
+      },
+      {
+        "rank": 31,
+        "feature": 114,
+        "label": "Program_114",
+        "block": "program",
+        "importance": 0.00169,
+        "importance_std": 0.00215
+      },
+      {
+        "rank": 32,
+        "feature": 138,
+        "label": "Program_138",
+        "block": "program",
+        "importance": 0.00166,
+        "importance_std": 0.00086
+      },
+      {
+        "rank": 33,
+        "feature": 98,
+        "label": "Program_098",
+        "block": "program",
+        "importance": 0.00159,
+        "importance_std": 0.00051
+      },
+      {
+        "rank": 34,
+        "feature": 59,
+        "label": "Program_059",
+        "block": "program",
+        "importance": 0.0015,
+        "importance_std": 0.00055
+      },
+      {
+        "rank": 35,
+        "feature": 20,
+        "label": "Program_020",
+        "block": "program",
+        "importance": 0.00145,
+        "importance_std": 0.00092
+      },
+      {
+        "rank": 36,
+        "feature": 81,
+        "label": "Program_081",
+        "block": "program",
+        "importance": 0.00142,
+        "importance_std": 0.00085
+      },
+      {
+        "rank": 37,
+        "feature": 111,
+        "label": "Program_111",
+        "block": "program",
+        "importance": 0.0014,
+        "importance_std": 0.0015
+      },
+      {
+        "rank": 38,
+        "feature": 58,
+        "label": "Program_058",
+        "block": "program",
+        "importance": 0.00135,
+        "importance_std": 0.00046
+      },
+      {
+        "rank": 39,
+        "feature": 28,
+        "label": "Program_028",
+        "block": "program",
+        "importance": 0.00095,
+        "importance_std": 0.00046
+      },
+      {
+        "rank": 40,
+        "feature": 139,
+        "label": "Program_139",
+        "block": "program",
+        "importance": 0.00091,
+        "importance_std": 0.00105
+      },
+      {
+        "rank": 41,
+        "feature": "del13",
+        "label": "del13",
+        "block": "clinical",
+        "importance": 0.0009,
+        "importance_std": 0.00136
+      },
+      {
+        "rank": 42,
+        "feature": 89,
+        "label": "Program_089",
+        "block": "program",
+        "importance": 0.00088,
+        "importance_std": 0.00093
+      },
+      {
+        "rank": 43,
+        "feature": 107,
+        "label": "Program_107",
+        "block": "program",
+        "importance": 0.00084,
+        "importance_std": 0.00017
+      },
+      {
+        "rank": 44,
+        "feature": 136,
+        "label": "Program_136",
+        "block": "program",
+        "importance": 0.00079,
+        "importance_std": 0.0004
+      },
+      {
+        "rank": 45,
+        "feature": 115,
+        "label": "Program_115",
+        "block": "program",
+        "importance": 0.00078,
+        "importance_std": 0.00081
+      },
+      {
+        "rank": 46,
+        "feature": 137,
+        "label": "Program_137",
+        "block": "program",
+        "importance": 0.00073,
+        "importance_std": 0.00116
+      },
+      {
+        "rank": 47,
+        "feature": 65,
+        "label": "Program_065",
+        "block": "program",
+        "importance": 0.00066,
+        "importance_std": 0.00042
+      },
+      {
+        "rank": 48,
+        "feature": 3,
+        "label": "Program_003",
+        "block": "program",
+        "importance": 0.00063,
+        "importance_std": 0.00053
+      },
+      {
+        "rank": 49,
+        "feature": 72,
+        "label": "Program_072",
+        "block": "program",
+        "importance": 0.00061,
+        "importance_std": 0.00107
+      },
+      {
+        "rank": 50,
+        "feature": 116,
+        "label": "Program_116",
+        "block": "program",
+        "importance": 0.00059,
+        "importance_std": 0.00039
+      },
+      {
+        "rank": 51,
+        "feature": 132,
+        "label": "Program_132",
+        "block": "program",
+        "importance": 0.00057,
+        "importance_std": 0.00042
+      },
+      {
+        "rank": 52,
+        "feature": 39,
+        "label": "Program_039",
+        "block": "program",
+        "importance": 0.00054,
+        "importance_std": 0.00047
+      },
+      {
+        "rank": 53,
+        "feature": 21,
+        "label": "Program_021",
+        "block": "program",
+        "importance": 0.00054,
+        "importance_std": 0.00033
+      },
+      {
+        "rank": 54,
+        "feature": 9,
+        "label": "Program_009",
+        "block": "program",
+        "importance": 0.00051,
+        "importance_std": 0.0005
+      },
+      {
+        "rank": 55,
+        "feature": 0,
+        "label": "Program_000",
+        "block": "program",
+        "importance": 0.00049,
+        "importance_std": 0.00078
+      },
+      {
+        "rank": 56,
+        "feature": 95,
+        "label": "Program_095",
+        "block": "program",
+        "importance": 0.00047,
+        "importance_std": 0.0003
+      },
+      {
+        "rank": 57,
+        "feature": 23,
+        "label": "Program_023",
+        "block": "program",
+        "importance": 0.00047,
+        "importance_std": 0.00053
+      },
+      {
+        "rank": 58,
+        "feature": 7,
+        "label": "Program_007",
+        "block": "program",
+        "importance": 0.00046,
+        "importance_std": 0.0005
+      },
+      {
+        "rank": 59,
+        "feature": 55,
+        "label": "Program_055",
+        "block": "program",
+        "importance": 0.00046,
+        "importance_std": 0.00053
+      },
+      {
+        "rank": 60,
+        "feature": 76,
+        "label": "Program_076",
+        "block": "program",
+        "importance": 0.00044,
+        "importance_std": 0.00074
+      },
+      {
+        "rank": 61,
+        "feature": "amp1q",
+        "label": "amp1q",
+        "block": "clinical",
+        "importance": 0.00041,
+        "importance_std": 0.00022
+      },
+      {
+        "rank": 62,
+        "feature": 40,
+        "label": "Program_040",
+        "block": "program",
+        "importance": 0.00039,
+        "importance_std": 0.0005
+      },
+      {
+        "rank": 63,
+        "feature": 16,
+        "label": "Program_016",
+        "block": "program",
+        "importance": 0.00037,
+        "importance_std": 0.00025
+      },
+      {
+        "rank": 64,
+        "feature": 2,
+        "label": "Program_002",
+        "block": "program",
+        "importance": 0.00037,
+        "importance_std": 0.00176
+      },
+      {
+        "rank": 65,
+        "feature": 97,
+        "label": "Program_097",
+        "block": "program",
+        "importance": 0.00037,
+        "importance_std": 0.00045
+      },
+      {
+        "rank": 66,
+        "feature": 35,
+        "label": "Program_035",
+        "block": "program",
+        "importance": 0.00034,
+        "importance_std": 0.00032
+      },
+      {
+        "rank": 67,
+        "feature": 91,
+        "label": "Program_091",
+        "block": "program",
+        "importance": 0.00029,
+        "importance_std": 0.00029
+      },
+      {
+        "rank": 68,
+        "feature": "cyto_count",
+        "label": "cyto_count",
+        "block": "clinical",
+        "importance": 0.00029,
+        "importance_std": 0.00074
+      },
+      {
+        "rank": 69,
+        "feature": 56,
+        "label": "Program_056",
+        "block": "program",
+        "importance": 0.00027,
+        "importance_std": 0.00024
+      },
+      {
+        "rank": 70,
+        "feature": 17,
+        "label": "Program_017",
+        "block": "program",
+        "importance": 0.00024,
+        "importance_std": 0.00019
+      },
+      {
+        "rank": 71,
+        "feature": 51,
+        "label": "Program_051",
+        "block": "program",
+        "importance": 0.0002,
+        "importance_std": 0.00046
+      },
+      {
+        "rank": 72,
+        "feature": 11,
+        "label": "Program_011",
+        "block": "program",
+        "importance": 0.00017,
+        "importance_std": 0.00183
+      },
+      {
+        "rank": 73,
+        "feature": 77,
+        "label": "Program_077",
+        "block": "program",
+        "importance": 0.00015,
+        "importance_std": 0.00346
+      },
+      {
+        "rank": 74,
+        "feature": 86,
+        "label": "Program_086",
+        "block": "program",
+        "importance": 0.00014,
+        "importance_std": 0.00105
+      },
+      {
+        "rank": 75,
+        "feature": "del17p",
+        "label": "del17p",
+        "block": "clinical",
+        "importance": 0.00012,
+        "importance_std": 0.00069
+      },
+      {
+        "rank": 76,
+        "feature": 62,
+        "label": "Program_062",
+        "block": "program",
+        "importance": 8e-05,
+        "importance_std": 0.00036
+      },
+      {
+        "rank": 77,
+        "feature": 31,
+        "label": "Program_031",
+        "block": "program",
+        "importance": 7e-05,
+        "importance_std": 0.00143
+      },
+      {
+        "rank": 78,
+        "feature": 41,
+        "label": "Program_041",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.00094
+      },
+      {
+        "rank": 79,
+        "feature": 1,
+        "label": "Program_001",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 80,
+        "feature": 5,
+        "label": "Program_005",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 81,
+        "feature": 13,
+        "label": "Program_013",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 82,
+        "feature": 14,
+        "label": "Program_014",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 83,
+        "feature": 18,
+        "label": "Program_018",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 84,
+        "feature": 27,
+        "label": "Program_027",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 85,
+        "feature": 34,
+        "label": "Program_034",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 86,
+        "feature": 36,
+        "label": "Program_036",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 87,
+        "feature": 37,
+        "label": "Program_037",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 88,
+        "feature": 38,
+        "label": "Program_038",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 89,
+        "feature": 47,
+        "label": "Program_047",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 90,
+        "feature": 74,
+        "label": "Program_074",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 91,
+        "feature": 75,
+        "label": "Program_075",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 92,
+        "feature": 88,
+        "label": "Program_088",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 93,
+        "feature": 90,
+        "label": "Program_090",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 94,
+        "feature": 93,
+        "label": "Program_093",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 95,
+        "feature": 99,
+        "label": "Program_099",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 96,
+        "feature": 100,
+        "label": "Program_100",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 97,
+        "feature": 101,
+        "label": "Program_101",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 98,
+        "feature": 103,
+        "label": "Program_103",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 99,
+        "feature": 104,
+        "label": "Program_104",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 100,
+        "feature": 106,
+        "label": "Program_106",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 101,
+        "feature": 108,
+        "label": "Program_108",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 102,
+        "feature": 118,
+        "label": "Program_118",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 103,
+        "feature": 119,
+        "label": "Program_119",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 104,
+        "feature": 123,
+        "label": "Program_123",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 105,
+        "feature": 126,
+        "label": "Program_126",
+        "block": "program",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 106,
+        "feature": "del1p",
+        "label": "del1p",
+        "block": "clinical",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 107,
+        "feature": "FGFR3",
+        "label": "FGFR3",
+        "block": "clinical",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 108,
+        "feature": "WHSC1",
+        "label": "WHSC1",
+        "block": "clinical",
+        "importance": 0.0,
+        "importance_std": 0.0
+      },
+      {
+        "rank": 109,
+        "feature": "total_muts",
+        "label": "total_muts",
+        "block": "clinical",
+        "importance": -2e-05,
+        "importance_std": 0.00055
+      },
+      {
+        "rank": 110,
+        "feature": 66,
+        "label": "Program_066",
+        "block": "program",
+        "importance": -3e-05,
+        "importance_std": 0.00125
+      },
+      {
+        "rank": 111,
+        "feature": 46,
+        "label": "Program_046",
+        "block": "program",
+        "importance": -8e-05,
+        "importance_std": 0.0003
+      },
+      {
+        "rank": 112,
+        "feature": 83,
+        "label": "Program_083",
+        "block": "program",
+        "importance": -0.0001,
+        "importance_std": 0.0002
+      },
+      {
+        "rank": 113,
+        "feature": 134,
+        "label": "Program_134",
+        "block": "program",
+        "importance": -0.00017,
+        "importance_std": 0.00046
+      },
+      {
+        "rank": 114,
+        "feature": 78,
+        "label": "Program_078",
+        "block": "program",
+        "importance": -0.00019,
+        "importance_std": 0.00088
+      },
+      {
+        "rank": 115,
+        "feature": 32,
+        "label": "Program_032",
+        "block": "program",
+        "importance": -0.00019,
+        "importance_std": 0.00054
+      },
+      {
+        "rank": 116,
+        "feature": 33,
+        "label": "Program_033",
+        "block": "program",
+        "importance": -0.00024,
+        "importance_std": 0.00051
+      },
+      {
+        "rank": 117,
+        "feature": 50,
+        "label": "Program_050",
+        "block": "program",
+        "importance": -0.00025,
+        "importance_std": 0.00039
+      },
+      {
+        "rank": 118,
+        "feature": 24,
+        "label": "Program_024",
+        "block": "program",
+        "importance": -0.0003,
+        "importance_std": 0.00056
+      },
+      {
+        "rank": 119,
+        "feature": 64,
+        "label": "Program_064",
+        "block": "program",
+        "importance": -0.0003,
+        "importance_std": 0.00299
+      },
+      {
+        "rank": 120,
+        "feature": 4,
+        "label": "Program_004",
+        "block": "program",
+        "importance": -0.00035,
+        "importance_std": 0.0008
+      },
+      {
+        "rank": 121,
+        "feature": 60,
+        "label": "Program_060",
+        "block": "program",
+        "importance": -0.00037,
+        "importance_std": 0.00064
+      },
+      {
+        "rank": 122,
+        "feature": 6,
+        "label": "Program_006",
+        "block": "program",
+        "importance": -0.00042,
+        "importance_std": 0.00038
+      },
+      {
+        "rank": 123,
+        "feature": 113,
+        "label": "Program_113",
+        "block": "program",
+        "importance": -0.00049,
+        "importance_std": 0.00051
+      },
+      {
+        "rank": 124,
+        "feature": 25,
+        "label": "Program_025",
+        "block": "program",
+        "importance": -0.00051,
+        "importance_std": 0.00085
+      },
+      {
+        "rank": 125,
+        "feature": 135,
+        "label": "Program_135",
+        "block": "program",
+        "importance": -0.00051,
+        "importance_std": 0.00098
+      },
+      {
+        "rank": 126,
+        "feature": 30,
+        "label": "Program_030",
+        "block": "program",
+        "importance": -0.00057,
+        "importance_std": 0.00183
+      },
+      {
+        "rank": 127,
+        "feature": 45,
+        "label": "Program_045",
+        "block": "program",
+        "importance": -0.00059,
+        "importance_std": 0.00063
+      },
+      {
+        "rank": 128,
+        "feature": 133,
+        "label": "Program_133",
+        "block": "program",
+        "importance": -0.00059,
+        "importance_std": 0.00107
+      },
+      {
+        "rank": 129,
+        "feature": 120,
+        "label": "Program_120",
+        "block": "program",
+        "importance": -0.00066,
+        "importance_std": 0.00044
+      },
+      {
+        "rank": 130,
+        "feature": 122,
+        "label": "Program_122",
+        "block": "program",
+        "importance": -0.00076,
+        "importance_std": 0.00075
+      },
+      {
+        "rank": 131,
+        "feature": 87,
+        "label": "Program_087",
+        "block": "program",
+        "importance": -0.00078,
+        "importance_std": 0.00069
+      },
+      {
+        "rank": 132,
+        "feature": "CCND1",
+        "label": "CCND1",
+        "block": "clinical",
+        "importance": -0.00088,
+        "importance_std": 0.00067
+      },
+      {
+        "rank": 133,
+        "feature": 12,
+        "label": "Program_012",
+        "block": "program",
+        "importance": -0.00096,
+        "importance_std": 0.00068
+      },
+      {
+        "rank": 134,
+        "feature": 125,
+        "label": "Program_125",
+        "block": "program",
+        "importance": -0.00096,
+        "importance_std": 0.00029
+      },
+      {
+        "rank": 135,
+        "feature": 42,
+        "label": "Program_042",
+        "block": "program",
+        "importance": -0.0012,
+        "importance_std": 0.00044
+      },
+      {
+        "rank": 136,
+        "feature": 73,
+        "label": "Program_073",
+        "block": "program",
+        "importance": -0.00128,
+        "importance_std": 0.0092
+      },
+      {
+        "rank": 137,
+        "feature": 131,
+        "label": "Program_131",
+        "block": "program",
+        "importance": -0.00149,
+        "importance_std": 0.00155
+      },
+      {
+        "rank": 138,
+        "feature": 19,
+        "label": "Program_019",
+        "block": "program",
+        "importance": -0.00154,
+        "importance_std": 0.0017
+      },
+      {
+        "rank": 139,
+        "feature": 15,
+        "label": "Program_015",
+        "block": "program",
+        "importance": -0.00164,
+        "importance_std": 0.00393
+      },
+      {
+        "rank": 140,
+        "feature": 70,
+        "label": "Program_070",
+        "block": "program",
+        "importance": -0.00184,
+        "importance_std": 0.00318
+      },
+      {
+        "rank": 141,
+        "feature": 130,
+        "label": "Program_130",
+        "block": "program",
+        "importance": -0.00189,
+        "importance_std": 0.00089
+      },
+      {
+        "rank": 142,
+        "feature": 94,
+        "label": "Program_094",
+        "block": "program",
+        "importance": -0.00196,
+        "importance_std": 0.00064
+      },
+      {
+        "rank": 143,
+        "feature": 22,
+        "label": "Program_022",
+        "block": "program",
+        "importance": -0.00198,
+        "importance_std": 0.00168
+      },
+      {
+        "rank": 144,
+        "feature": 79,
+        "label": "Program_079",
+        "block": "program",
+        "importance": -0.00211,
+        "importance_std": 0.00172
+      },
+      {
+        "rank": 145,
+        "feature": 129,
+        "label": "Program_129",
+        "block": "program",
+        "importance": -0.00213,
+        "importance_std": 0.0014
+      },
+      {
+        "rank": 146,
+        "feature": 61,
+        "label": "Program_061",
+        "block": "program",
+        "importance": -0.00306,
+        "importance_std": 0.00404
+      },
+      {
+        "rank": 147,
+        "feature": 102,
+        "label": "Program_102",
+        "block": "program",
+        "importance": -0.0034,
+        "importance_std": 0.00547
+      },
+      {
+        "rank": 148,
+        "feature": 29,
+        "label": "Program_029",
+        "block": "program",
+        "importance": -0.00361,
+        "importance_std": 0.005
+      },
+      {
+        "rank": 149,
+        "feature": 117,
+        "label": "Program_117",
+        "block": "program",
+        "importance": -0.00422,
+        "importance_std": 0.00167
+      },
+      {
+        "rank": 150,
+        "feature": 121,
+        "label": "Program_121",
+        "block": "program",
+        "importance": -0.0047,
+        "importance_std": 0.0046
+      },
+      {
+        "rank": 151,
+        "feature": 68,
+        "label": "Program_068",
+        "block": "program",
+        "importance": -0.00471,
+        "importance_std": 0.00557
+      }
+    ],
+    "top10": [
+      {
+        "rank": 1,
+        "label": "ISS",
+        "block": "clinical",
+        "importance": 0.03343
+      },
+      {
+        "rank": 2,
+        "label": "Program_071",
+        "block": "program",
+        "importance": 0.01652
+      },
+      {
+        "rank": 3,
+        "label": "Program_008",
+        "block": "program",
+        "importance": 0.01466
+      },
+      {
+        "rank": 4,
+        "label": "Program_084",
+        "block": "program",
+        "importance": 0.00992
+      },
+      {
+        "rank": 5,
+        "label": "Program_112",
+        "block": "program",
+        "importance": 0.0088
+      },
+      {
+        "rank": 6,
+        "label": "Program_044",
+        "block": "program",
+        "importance": 0.00797
+      },
+      {
+        "rank": 7,
+        "label": "Program_053",
+        "block": "program",
+        "importance": 0.00767
+      },
+      {
+        "rank": 8,
+        "label": "Program_080",
+        "block": "program",
+        "importance": 0.00689
+      },
+      {
+        "rank": 9,
+        "label": "Program_069",
+        "block": "program",
+        "importance": 0.00657
+      },
+      {
+        "rank": 10,
+        "label": "Program_109",
+        "block": "program",
+        "importance": 0.00635
+      }
+    ]
+  },
+  "risk_tertiles": {
+    "risk_cutpoints": [
+      -0.32028,
+      0.11454
+    ],
+    "n_per_tertile": {
+      "Low": 257,
+      "Mid": 256,
+      "High": 256
+    },
+    "median_pfs_days": {
+      "Low": 1436.0,
+      "Mid": 914.0,
+      "High": 715.0
+    },
+    "logrank_p": 4.845659050447542e-12,
+    "differential_programs": [
+      {
+        "tertile": "High",
+        "program": 68,
+        "label": "Program_068",
+        "mean_in": 0.5273,
+        "mean_rest": -0.1715,
+        "cohens_d": 1.0808,
+        "abs_d": 1.0808
+      },
+      {
+        "tertile": "High",
+        "program": 71,
+        "label": "Program_071",
+        "mean_in": 0.5078,
+        "mean_rest": -0.0936,
+        "cohens_d": 1.0379,
+        "abs_d": 1.0379
+      },
+      {
+        "tertile": "High",
+        "program": 104,
+        "label": "Program_104",
+        "mean_in": -0.1602,
+        "mean_rest": 0.4581,
+        "cohens_d": -0.9792,
+        "abs_d": 0.9792
+      },
+      {
+        "tertile": "High",
+        "program": 69,
+        "label": "Program_069",
+        "mean_in": 0.5898,
+        "mean_rest": 0.0019,
+        "cohens_d": 0.9088,
+        "abs_d": 0.9088
+      },
+      {
+        "tertile": "High",
+        "program": 76,
+        "label": "Program_076",
+        "mean_in": 0.207,
+        "mean_rest": -0.2924,
+        "cohens_d": 0.8234,
+        "abs_d": 0.8234
+      },
+      {
+        "tertile": "High",
+        "program": 54,
+        "label": "Program_054",
+        "mean_in": 0.0156,
+        "mean_rest": -0.4893,
+        "cohens_d": 0.7865,
+        "abs_d": 0.7865
+      },
+      {
+        "tertile": "High",
+        "program": 48,
+        "label": "Program_048",
+        "mean_in": 0.4766,
+        "mean_rest": -0.037,
+        "cohens_d": 0.7433,
+        "abs_d": 0.7433
+      },
+      {
+        "tertile": "High",
+        "program": 49,
+        "label": "Program_049",
+        "mean_in": 0.4609,
+        "mean_rest": 0.0175,
+        "cohens_d": 0.6838,
+        "abs_d": 0.6838
+      },
+      {
+        "tertile": "High",
+        "program": 80,
+        "label": "Program_080",
+        "mean_in": -0.207,
+        "mean_rest": -0.6004,
+        "cohens_d": 0.6691,
+        "abs_d": 0.6691
+      },
+      {
+        "tertile": "High",
+        "program": 110,
+        "label": "Program_110",
+        "mean_in": -0.0234,
+        "mean_rest": 0.3684,
+        "cohens_d": -0.6565,
+        "abs_d": 0.6565
+      },
+      {
+        "tertile": "High",
+        "program": 82,
+        "label": "Program_082",
+        "mean_in": 0.1719,
+        "mean_rest": -0.1111,
+        "cohens_d": 0.6376,
+        "abs_d": 0.6376
+      },
+      {
+        "tertile": "High",
+        "program": 74,
+        "label": "Program_074",
+        "mean_in": 0.4375,
+        "mean_rest": 0.0448,
+        "cohens_d": 0.6311,
+        "abs_d": 0.6311
+      },
+      {
+        "tertile": "Low",
+        "program": 71,
+        "label": "Program_071",
+        "mean_in": -0.249,
+        "mean_rest": 0.2852,
+        "cohens_d": -0.8996,
+        "abs_d": 0.8996
+      },
+      {
+        "tertile": "Low",
+        "program": 80,
+        "label": "Program_080",
+        "mean_in": -0.7704,
+        "mean_rest": -0.3184,
+        "cohens_d": -0.7816,
+        "abs_d": 0.7816
+      },
+      {
+        "tertile": "Low",
+        "program": 104,
+        "label": "Program_104",
+        "mean_in": 0.5837,
+        "mean_rest": 0.0859,
+        "cohens_d": 0.7603,
+        "abs_d": 0.7603
+      },
+      {
+        "tertile": "Low",
+        "program": 48,
+        "label": "Program_048",
+        "mean_in": -0.1868,
+        "mean_rest": 0.2949,
+        "cohens_d": -0.6921,
+        "abs_d": 0.6921
+      },
+      {
+        "tertile": "Low",
+        "program": 54,
+        "label": "Program_054",
+        "mean_in": -0.607,
+        "mean_rest": -0.1777,
+        "cohens_d": -0.6563,
+        "abs_d": 0.6563
+      },
+      {
+        "tertile": "Low",
+        "program": 68,
+        "label": "Program_068",
+        "mean_in": -0.2412,
+        "mean_rest": 0.2129,
+        "cohens_d": -0.6549,
+        "abs_d": 0.6549
+      },
+      {
+        "tertile": "Low",
+        "program": 76,
+        "label": "Program_076",
+        "mean_in": -0.3852,
+        "mean_rest": 0.0039,
+        "cohens_d": -0.6234,
+        "abs_d": 0.6234
+      },
+      {
+        "tertile": "Low",
+        "program": 69,
+        "label": "Program_069",
+        "mean_in": -0.0778,
+        "mean_rest": 0.3359,
+        "cohens_d": -0.6119,
+        "abs_d": 0.6119
+      },
+      {
+        "tertile": "Low",
+        "program": 112,
+        "label": "Program_112",
+        "mean_in": 0.4163,
+        "mean_rest": 0.0703,
+        "cohens_d": 0.6062,
+        "abs_d": 0.6062
+      },
+      {
+        "tertile": "Low",
+        "program": 82,
+        "label": "Program_082",
+        "mean_in": -0.1946,
+        "mean_rest": 0.0723,
+        "cohens_d": -0.5982,
+        "abs_d": 0.5982
+      },
+      {
+        "tertile": "Low",
+        "program": 43,
+        "label": "Program_043",
+        "mean_in": 0.2996,
+        "mean_rest": 0.0273,
+        "cohens_d": 0.5825,
+        "abs_d": 0.5825
+      },
+      {
+        "tertile": "Low",
+        "program": 49,
+        "label": "Program_049",
+        "mean_in": -0.0895,
+        "mean_rest": 0.293,
+        "cohens_d": -0.5822,
+        "abs_d": 0.5822
+      },
+      {
+        "tertile": "Mid",
+        "program": 72,
+        "label": "Program_072",
+        "mean_in": -0.0273,
+        "mean_rest": 0.2261,
+        "cohens_d": -0.3439,
+        "abs_d": 0.3439
+      },
+      {
+        "tertile": "Mid",
+        "program": 68,
+        "label": "Program_068",
+        "mean_in": -0.1016,
+        "mean_rest": 0.1423,
+        "cohens_d": -0.3403,
+        "abs_d": 0.3403
+      },
+      {
+        "tertile": "Mid",
+        "program": 21,
+        "label": "Program_021",
+        "mean_in": 0.3086,
+        "mean_rest": 0.1189,
+        "cohens_d": 0.3307,
+        "abs_d": 0.3307
+      },
+      {
+        "tertile": "Mid",
+        "program": 0,
+        "label": "Program_000",
+        "mean_in": 0.3555,
+        "mean_rest": 0.2008,
+        "cohens_d": 0.3116,
+        "abs_d": 0.3116
+      },
+      {
+        "tertile": "Mid",
+        "program": 3,
+        "label": "Program_003",
+        "mean_in": 0.3398,
+        "mean_rest": 0.1306,
+        "cohens_d": 0.3108,
+        "abs_d": 0.3108
+      },
+      {
+        "tertile": "Mid",
+        "program": 24,
+        "label": "Program_024",
+        "mean_in": 0.3516,
+        "mean_rest": 0.1637,
+        "cohens_d": 0.3073,
+        "abs_d": 0.3073
+      },
+      {
+        "tertile": "Mid",
+        "program": 61,
+        "label": "Program_061",
+        "mean_in": 0.3594,
+        "mean_rest": 0.1579,
+        "cohens_d": 0.3003,
+        "abs_d": 0.3003
+      },
+      {
+        "tertile": "Mid",
+        "program": 73,
+        "label": "Program_073",
+        "mean_in": 0.0391,
+        "mean_rest": 0.2125,
+        "cohens_d": -0.2937,
+        "abs_d": 0.2937
+      },
+      {
+        "tertile": "Mid",
+        "program": 133,
+        "label": "Program_133",
+        "mean_in": 0.0039,
+        "mean_rest": 0.1988,
+        "cohens_d": -0.2933,
+        "abs_d": 0.2933
+      },
+      {
+        "tertile": "Mid",
+        "program": 2,
+        "label": "Program_002",
+        "mean_in": 0.3672,
+        "mean_rest": 0.1813,
+        "cohens_d": 0.2926,
+        "abs_d": 0.2926
+      },
+      {
+        "tertile": "Mid",
+        "program": 20,
+        "label": "Program_020",
+        "mean_in": 0.2852,
+        "mean_rest": 0.1014,
+        "cohens_d": 0.2798,
+        "abs_d": 0.2798
+      },
+      {
+        "tertile": "Mid",
+        "program": 5,
+        "label": "Program_005",
+        "mean_in": 0.3164,
+        "mean_rest": 0.1306,
+        "cohens_d": 0.2776,
+        "abs_d": 0.2776
+      }
+    ],
+    "cyto_enrichment": [
+      {
+        "tertile": "Low",
+        "flag": "del13",
+        "prop_in": 0.179,
+        "prop_rest": 0.2812,
+        "n_pos_in": 46,
+        "n_in": 257,
+        "fisher_p": 0.0019,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Low",
+        "flag": "del17p",
+        "prop_in": 0.07,
+        "prop_rest": 0.0684,
+        "n_pos_in": 18,
+        "n_in": 257,
+        "fisher_p": 1.0,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Low",
+        "flag": "del1p",
+        "prop_in": 0.0661,
+        "prop_rest": 0.084,
+        "n_pos_in": 17,
+        "n_in": 257,
+        "fisher_p": 0.4762,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Low",
+        "flag": "amp1q",
+        "prop_in": 0.1907,
+        "prop_rest": 0.3008,
+        "n_pos_in": 49,
+        "n_in": 257,
+        "fisher_p": 0.001,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Low",
+        "flag": "CCND1",
+        "prop_in": 0.1167,
+        "prop_rest": 0.2402,
+        "n_pos_in": 30,
+        "n_in": 257,
+        "fisher_p": 0.0,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Low",
+        "flag": "FGFR3",
+        "prop_in": 0.0545,
+        "prop_rest": 0.123,
+        "n_pos_in": 14,
+        "n_in": 257,
+        "fisher_p": 0.0022,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Low",
+        "flag": "WHSC1",
+        "prop_in": 0.0934,
+        "prop_rest": 0.1582,
+        "n_pos_in": 24,
+        "n_in": 257,
+        "fisher_p": 0.0142,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Mid",
+        "flag": "del13",
+        "prop_in": 0.2812,
+        "prop_rest": 0.23,
+        "n_pos_in": 72,
+        "n_in": 256,
+        "fisher_p": 0.1317,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Mid",
+        "flag": "del17p",
+        "prop_in": 0.0469,
+        "prop_rest": 0.0799,
+        "n_pos_in": 12,
+        "n_in": 256,
+        "fisher_p": 0.0976,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Mid",
+        "flag": "del1p",
+        "prop_in": 0.0898,
+        "prop_rest": 0.0721,
+        "n_pos_in": 23,
+        "n_in": 256,
+        "fisher_p": 0.3945,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Mid",
+        "flag": "amp1q",
+        "prop_in": 0.2695,
+        "prop_rest": 0.2612,
+        "n_pos_in": 69,
+        "n_in": 256,
+        "fisher_p": 0.8622,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Mid",
+        "flag": "CCND1",
+        "prop_in": 0.2188,
+        "prop_rest": 0.1891,
+        "n_pos_in": 56,
+        "n_in": 256,
+        "fisher_p": 0.339,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Mid",
+        "flag": "FGFR3",
+        "prop_in": 0.0898,
+        "prop_rest": 0.1053,
+        "n_pos_in": 23,
+        "n_in": 256,
+        "fisher_p": 0.5271,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "Mid",
+        "flag": "WHSC1",
+        "prop_in": 0.1172,
+        "prop_rest": 0.1462,
+        "n_pos_in": 30,
+        "n_in": 256,
+        "fisher_p": 0.316,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "High",
+        "flag": "del13",
+        "prop_in": 0.2812,
+        "prop_rest": 0.23,
+        "n_pos_in": 72,
+        "n_in": 256,
+        "fisher_p": 0.1317,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "High",
+        "flag": "del17p",
+        "prop_in": 0.0898,
+        "prop_rest": 0.0585,
+        "n_pos_in": 23,
+        "n_in": 256,
+        "fisher_p": 0.1301,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "High",
+        "flag": "del1p",
+        "prop_in": 0.0781,
+        "prop_rest": 0.078,
+        "n_pos_in": 20,
+        "n_in": 256,
+        "fisher_p": 1.0,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "High",
+        "flag": "amp1q",
+        "prop_in": 0.332,
+        "prop_rest": 0.23,
+        "n_pos_in": 85,
+        "n_in": 256,
+        "fisher_p": 0.0031,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "High",
+        "flag": "CCND1",
+        "prop_in": 0.2617,
+        "prop_rest": 0.1676,
+        "n_pos_in": 67,
+        "n_in": 256,
+        "fisher_p": 0.0029,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "High",
+        "flag": "FGFR3",
+        "prop_in": 0.1562,
+        "prop_rest": 0.0721,
+        "n_pos_in": 40,
+        "n_in": 256,
+        "fisher_p": 0.0005,
+        "method": "fisher_exact"
+      },
+      {
+        "tertile": "High",
+        "flag": "WHSC1",
+        "prop_in": 0.1992,
+        "prop_rest": 0.1053,
+        "n_pos_in": 51,
+        "n_in": 256,
+        "fisher_p": 0.0005,
+        "method": "fisher_exact"
+      }
+    ],
+    "iss_distribution": [
+      {
+        "tertile": "Low",
+        "mean_ISS": 1.511,
+        "n_with_ISS": 231,
+        "prop_ISS1": 0.6061,
+        "prop_ISS2": 0.2771,
+        "prop_ISS3": 0.1169
+      },
+      {
+        "tertile": "Mid",
+        "mean_ISS": 2.108,
+        "n_with_ISS": 186,
+        "prop_ISS1": 0.2151,
+        "prop_ISS2": 0.4624,
+        "prop_ISS3": 0.3226
+      },
+      {
+        "tertile": "High",
+        "mean_ISS": 2.327,
+        "n_with_ISS": 196,
+        "prop_ISS1": 0.1327,
+        "prop_ISS2": 0.4082,
+        "prop_ISS3": 0.4592
+      }
+    ],
+    "regimen_distribution": [
+      {
+        "tertile": "Low",
+        "n_matched": 256,
+        "prop_PI": 0.9414,
+        "prop_IMiD": 0.7578,
+        "prop_CD38": 0.0156
+      },
+      {
+        "tertile": "Mid",
+        "n_matched": 254,
+        "prop_PI": 0.9331,
+        "prop_IMiD": 0.7323,
+        "prop_CD38": 0.0079
+      },
+      {
+        "tertile": "High",
+        "n_matched": 255,
+        "prop_PI": 0.9569,
+        "prop_IMiD": 0.6902,
+        "prop_CD38": 0.0157
+      }
+    ],
+    "notes": [
+      "First-line regimen matched for 765/769 patients via MMRF submitter_id."
+    ]
+  },
+  "calibration": {
+    "365": {
+      "ece": 0.0182,
+      "bins": [
+        {
+          "mean_pred": 0.1146,
+          "obs_risk": 0.1237,
+          "n": 589
+        },
+        {
+          "mean_pred": 0.2699,
+          "obs_risk": 0.2266,
+          "n": 140
+        },
+        {
+          "mean_pred": 0.5056,
+          "obs_risk": 0.5154,
+          "n": 23
+        },
+        {
+          "mean_pred": 0.6816,
+          "obs_risk": 0.6154,
+          "n": 13
+        },
+        {
+          "mean_pred": 0.8575,
+          "obs_risk": 0.5,
+          "n": 4
+        }
+      ]
+    },
+    "730": {
+      "ece": 0.0343,
+      "bins": [
+        {
+          "mean_pred": 0.1657,
+          "obs_risk": 0.2047,
+          "n": 75
+        },
+        {
+          "mean_pred": 0.3073,
+          "obs_risk": 0.3097,
+          "n": 400
+        },
+        {
+          "mean_pred": 0.4827,
+          "obs_risk": 0.3981,
+          "n": 178
+        },
+        {
+          "mean_pred": 0.6838,
+          "obs_risk": 0.6432,
+          "n": 74
+        },
+        {
+          "mean_pred": 0.9212,
+          "obs_risk": 0.8168,
+          "n": 42
+        }
+      ]
+    }
+  },
+  "partial_dependence": {
+    "top3_programs": [
+      "Program_071",
+      "Program_008",
+      "Program_084"
+    ],
+    "curves": {
+      "Program_071": [
+        {
+          "grid_value": -1.0,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.8947368421052632,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.7894736842105263,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.6842105263157895,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.5789473684210527,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.4736842105263158,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.368421052631579,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.26315789473684215,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.1578947368421053,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": -0.052631578947368474,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": 0.05263157894736836,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": 0.1578947368421053,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": 0.26315789473684204,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": 0.36842105263157876,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": 0.4736842105263157,
+          "mean_risk": -0.08288355982328685,
+          "risk_std": 0.5805556068314719
+        },
+        {
+          "grid_value": 0.5789473684210527,
+          "mean_risk": 0.08565207566010344,
+          "risk_std": 0.6169861240527384
+        },
+        {
+          "grid_value": 0.6842105263157894,
+          "mean_risk": 0.08565207566010344,
+          "risk_std": 0.6169861240527384
+        },
+        {
+          "grid_value": 0.7894736842105261,
+          "mean_risk": 0.08565207566010344,
+          "risk_std": 0.6169861240527384
+        },
+        {
+          "grid_value": 0.894736842105263,
+          "mean_risk": 0.08565207566010344,
+          "risk_std": 0.6169861240527384
+        },
+        {
+          "grid_value": 1.0,
+          "mean_risk": 0.08565207566010344,
+          "risk_std": 0.6169861240527384
+        }
+      ],
+      "Program_008": [
+        {
+          "grid_value": -1.0,
+          "mean_risk": -0.11439436152952556,
+          "risk_std": 0.6032940692019797
+        },
+        {
+          "grid_value": -0.8947368421052632,
+          "mean_risk": -0.11439436152952556,
+          "risk_std": 0.6032940692019797
+        },
+        {
+          "grid_value": -0.7894736842105263,
+          "mean_risk": -0.11439436152952556,
+          "risk_std": 0.6032940692019797
+        },
+        {
+          "grid_value": -0.6842105263157895,
+          "mean_risk": -0.11439436152952556,
+          "risk_std": 0.6032940692019797
+        },
+        {
+          "grid_value": -0.5789473684210527,
+          "mean_risk": -0.11439436152952556,
+          "risk_std": 0.6032940692019797
+        },
+        {
+          "grid_value": -0.4736842105263158,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": -0.368421052631579,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": -0.26315789473684215,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": -0.1578947368421053,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": -0.052631578947368474,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": 0.05263157894736836,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": 0.1578947368421053,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": 0.26315789473684204,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": 0.36842105263157876,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": 0.4736842105263157,
+          "mean_risk": -0.013362662073415544,
+          "risk_std": 0.593947236398891
+        },
+        {
+          "grid_value": 0.5789473684210527,
+          "mean_risk": -0.021120331217505953,
+          "risk_std": 0.5918325733670573
+        },
+        {
+          "grid_value": 0.6842105263157894,
+          "mean_risk": -0.021120331217505953,
+          "risk_std": 0.5918325733670573
+        },
+        {
+          "grid_value": 0.7894736842105261,
+          "mean_risk": -0.021120331217505953,
+          "risk_std": 0.5918325733670573
+        },
+        {
+          "grid_value": 0.894736842105263,
+          "mean_risk": -0.021120331217505953,
+          "risk_std": 0.5918325733670573
+        },
+        {
+          "grid_value": 1.0,
+          "mean_risk": -0.021120331217505953,
+          "risk_std": 0.5918325733670573
+        }
+      ],
+      "Program_084": [
+        {
+          "grid_value": -1.0,
+          "mean_risk": -0.031068988414949397,
+          "risk_std": 0.5920802377891621
+        },
+        {
+          "grid_value": -0.8947368421052632,
+          "mean_risk": -0.031068988414949397,
+          "risk_std": 0.5920802377891621
+        },
+        {
+          "grid_value": -0.7894736842105263,
+          "mean_risk": -0.031068988414949397,
+          "risk_std": 0.5920802377891621
+        },
+        {
+          "grid_value": -0.6842105263157895,
+          "mean_risk": -0.031068988414949397,
+          "risk_std": 0.5920802377891621
+        },
+        {
+          "grid_value": -0.5789473684210527,
+          "mean_risk": -0.031068988414949397,
+          "risk_std": 0.5920802377891621
+        },
+        {
+          "grid_value": -0.4736842105263158,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": -0.368421052631579,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": -0.26315789473684215,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": -0.1578947368421053,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": -0.052631578947368474,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": 0.05263157894736836,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": 0.1578947368421053,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": 0.26315789473684204,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": 0.36842105263157876,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": 0.4736842105263157,
+          "mean_risk": -0.06295058955656453,
+          "risk_std": 0.5988823627770935
+        },
+        {
+          "grid_value": 0.5789473684210527,
+          "mean_risk": 0.038701254647863,
+          "risk_std": 0.6353345894692172
+        },
+        {
+          "grid_value": 0.6842105263157894,
+          "mean_risk": 0.038701254647863,
+          "risk_std": 0.6353345894692172
+        },
+        {
+          "grid_value": 0.7894736842105261,
+          "mean_risk": 0.038701254647863,
+          "risk_std": 0.6353345894692172
+        },
+        {
+          "grid_value": 0.894736842105263,
+          "mean_risk": 0.038701254647863,
+          "risk_std": 0.6353345894692172
+        },
+        {
+          "grid_value": 1.0,
+          "mean_risk": 0.038701254647863,
+          "risk_std": 0.6353345894692172
+        }
+      ]
+    }
+  },
+  "figures": [
+    "fig_risk_drivers.png",
+    "fig_risk_tertile_heatmap.png",
+    "fig_tertile_km.png",
+    "fig_calibration.png",
+    "fig_program_partial_dependence.png"
+  ]
+}
