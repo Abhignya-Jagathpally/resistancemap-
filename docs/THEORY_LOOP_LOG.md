@@ -73,3 +73,25 @@ Triaged by (theory fit × open-data availability × ICLR/ICML relevance). The lo
 
 **Selection rule for the loop:** prefer the Tier-1 mechanism with the cleanest mathematical property
 that a nested-CV ablation rewards; never adopt a Tier-3 mechanism on data that cannot support it.
+
+---
+
+## Iteration 2 — adversarial verification of Iter-1 LTI  [Iter-1 REFUTED]
+**Did:** fixed the forward-grid bug (horizons now days-AFTER-L), re-ran L=180/365/730 under nested CV,
+added a STRONG-baseline gate (Cox(ISS+gep70)), a NEGATIVE-CONTROL (shuffle treatment→patient mapping,
+20 reps), and outcome-correlation diagnostics. `results/theory_loop/iter2.json`.
+**Result.**
+- Weak base: L=180 ISS 0.591 → +x 0.642 (Δ+0.051, CI [+0.011,+0.089]) — adds over ISS-only.
+- **STRONG base (the real test): L=180 ISS+gep70 0.659 → +x 0.673, Δ+0.014 CI [−0.005,+0.031] (crosses 0).**
+  L=365 Δ−0.002 (ns); L=730 Δ−0.017 (CI [−0.039,−0.001], significantly WORSE).
+- Negative control @L=180: real ISS+x 0.642 vs shuffled-treatment null mean 0.606 (max 0.660), p=0.050.
+- Diagnostic: Spearman(x, forward-time) = +0.30 @L=180 (not a clean monotone risk feature).
+**Verdict: Iter-1 win REFUTED.** The control-theoretic LTI feature does NOT CI-separate over a strong
+baseline at any landmark (and is significantly worse at 730 d); only a marginal (p=0.05) sliver of real
+signal survives the negative control. The Iter-1 +0.072 was an artifact of the grid bug + a weak
+ISS-only base + gep70-redundant signal. Gate `beats_SOTA` stays **BLOCKED**. Honest negative result —
+the discipline caught the false positive. **Switch theory.**
+**Next (Iteration 3):** Tier-1 #1 — **score-based / denoising DIFFUSION SDE on disease-state latents**
+(the basin/Langevin connection `dz=−∇U(z)dt+σdW`), survival = first-passage into a resistance basin,
+treatment-conditioned drift. Evaluate honestly vs gep70/sky92 + Cox(ISS+gep70) with the same nested-CV,
+immortal-time-safe, guilty-until-proven-innocent protocol.
