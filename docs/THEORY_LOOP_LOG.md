@@ -158,3 +158,20 @@ GBS/log-rank-basin/diffusion — tie at ~0.62–0.66.)
 **Next (Iteration 6 — LAST mechanism before synthesis):** Tier-2 ego-centric patient-similarity GRAPH
 survival (kNN ego-graph on the program manifold; transductive/graph-regularized risk) — a distinct
 (graph) family to complete the method-family-spanning claim. Then SYNTHESIZE docs/THEORY_LOOP_SYNTHESIS.md.
+
+---
+
+## Iteration 6 — ego-centric patient-similarity graph survival  [honest negative, BLOCKED]
+**Did:** kNN ego-graph on the 141-program manifold; transductive risk = 1−S_KM(365d) from out-of-fold
+neighbors; inner-CV k. `results/theory_loop/iter6.json`.
+**Result:** graph C-index **0.598 [0.564, 0.633]** < SOTA (gep70 0.624/sky92 0.620); strong base 0.653
+→ +graph 0.654 (no add). k*=50 every fold. Honest negative — ceiling holds in the graph family too.
+
+## CONVERGED — synthesis written (docs/THEORY_LOOP_SYNTHESIS.md)
+Six theory families (control-theoretic LTI/SSM, diffusion-SDE, CDE/path-signature, log-rank clustering,
+transductive graph) all tie at the ~0.62–0.66 ceiling; none beats Cox(ISS+gep70). Residual signal is a
+power-limited ~+0.01–0.015 td-AUC treatment effect at 6 months (one CI-separated, landmark-sensitive
+config). Per the pre-registered convergence criterion, the loop STOPS adding mechanisms (further ones
+= thrashing) and the contribution is the rigorous method-family-spanning ceiling result + the reusable
+theory-grounded harness + localization of residual signal to treatment dynamics and the access-gated
+immune modality. See docs/THEORY_LOOP_SYNTHESIS.md.

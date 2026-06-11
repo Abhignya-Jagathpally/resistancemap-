@@ -149,3 +149,6 @@ installed, results/phate_demo.png); comparators/MIOFLOW.md; literature/reference
 real URLs) + PRISMA.md (165 identified -> 18 included).
 
 PENDING (your GPU box): real GDC-open run, scVI/MIOFlow (need torch), Gateway lab/PK layer.
+
+## Theory loop — CONVERGED (2026-06-10)
+Six theory families (LTI/SSM/diffusion/CDE/log-rank/graph) tie at the ~0.62-0.66 PFS ceiling; none beats Cox(ISS+gep70). Residual signal = power-limited ~+0.01 td-AUC treatment effect (Lane #2 CI-separated only @180d). Synthesis: docs/THEORY_LOOP_SYNTHESIS.md; per-iter: docs/THEORY_LOOP_LOG.md + results/theory_loop/. Gate beats_SOTA BLOCKED throughout (honest).
