@@ -85,3 +85,19 @@ Three KM panels — risk tertiles by gep70, by sky92, and by our GBS(prog+clin) 
 
 ## One-paragraph reading order for a reviewer
 Start with **fig_leakage_audit** (why the bar is 0.62, not 1.0) → **fig_sota_benchmark** (parity at the ceiling) → **fig_tdauc_over_time** (the signal is early & shared = a modality limit) → **fig_risk_drivers** + **fig_tertile_km** + **fig_patient_manifold** (the risk is interpretable & biology-anchored) → **fig_nonph_schoenfeld** (the non-PH structure is treatment-driven) → **fig_lane2_v2** (a small, honest, immortal-time-safe treatment-conditioned gain). That arc *is* the paper.
+
+---
+
+## CAPSTONE (`fig_capstone.png`) — the whole body of work in one figure
+**Script:** `scripts/make_capstone_figure.py` · all numbers from `results/{sota_comparison,theory_loop/*,lane2/*,extval/*}.json`.
+- **Panel A — discrimination is method-invariantly ceiling-bound.** Nine model classes (gep70/sky92,
+  Cox/RSF/GBS/Stacked, diffusion-SDE, patient-graph, log-rank basin) on the static PFS substrate, with
+  the gep70/sky92 SOTA band shaded and the strong baseline Cox(ISS+gep70)≈0.653 dashed. All cluster ~0.62–0.66
+  (basin collapses to 0.48); none CI-separates above SOTA.
+- **Panel B — treatment-conditioned signal is small & power-limited.** Δ forward td-AUC over the strong
+  baseline at the 180-day landmark for four theory families (LTI, time-varying Cox, CDE/signature, SSM);
+  all ~+0.01–0.015, only the Lane-2 time-varying Cox CI-separates (green) — a real but underpowered effect.
+- **Panel C — trustworthy uncertainty.** Empirical coverage of 90% prediction intervals: split-conformal
+  hits 0.906 (valid) while naive Gaussian under-covers at 0.765 — conformal is necessary and sufficient.
+- **One-line story:** discrimination is information-capped, so the contribution is honesty (leakage audit) +
+  calibrated distribution-free uncertainty + generalization, on open data, with a reusable harness.
