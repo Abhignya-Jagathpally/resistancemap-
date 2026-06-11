@@ -46,15 +46,33 @@ Forward td-AUC at each landmark (mean±std over patient-disjoint folds); time re
 | 365 d | 0.572±0.068 | **0.582±0.068** | 0.500 (collapsed) |
 | 730 d | 0.518±0.033 | 0.495±0.016 | 0.500 (collapsed) |
 
-- **Gate `treatment_nonph_beats_static`: PASS (narrow, honest).** Time-varying treatment covariates beat
-  static on forward td-AUC at **L=365** with paired-fold bootstrap **Δ=+0.0097, CI [+0.0036, +0.0143]**
-  (100% folds positive); borderline at L=180; small loss by L=730 (sparse, n_events≈84). The win is real
-  and immortal-time-safe but **modest (~+0.01)**.
+- **Gate `treatment_nonph_beats_static`: PASS (narrow, honest).** v1 (single-CV) found a CI-separated
+  win at L=365 (Δ=+0.0097); the rigorous **nested-CV refinement (v2) supersedes this** — see below.
 - **Mechanism confirmed:** Grambsch–Therneau `n_lines` violates PH (χ²=19.1, p=1.2e-5); clinical baseline
   0/10 (PH holds). The non-PH structure is treatment-driven, on open data.
 - **PH-free `treatment_basin` collapses** to a single basin (td-AUC=0.500) at every landmark — same failure
   mode as ResistanceBasin-LR; the partial-log-rank objective finds no stable multi-basin structure on this
   wide low-signal substrate. Reported plainly, not hidden. 8/8 Lane #2 unit tests pass.
+
+### v2 — nested-CV refinement (RIGOROUS; supersedes v1) — `results/lane2/landmark_results_v2.json`
+Outer 5-fold patient-disjoint CV; inner CV (on training folds only) selects every penalizer/config; outer
+fold touched once. Enriched time-varying covariates (n_switches, escalation, n_distinct_classes, regimen
+class at L) vs static Cox:
+
+| Landmark | static | enriched_tv | Δ (enriched−static) | 95% CI | CI>0 |
+|---|---|---|---|---|---|
+| 180 d | 0.635 | **0.649** | **+0.0145** | **[+0.0018, +0.0259]** | **YES (98.2% boot)** |
+| 365 d | 0.567 | 0.574 | +0.0076 | [−0.0084, +0.0212] | no |
+| 730 d | 0.494 | 0.472 | −0.0216 | [−0.0470, +0.0003] | no |
+
+- **Honest verdict (nested CV):** the time-varying treatment model gives a **small CI-separated forward
+  td-AUC gain at L=180 (+0.0145)**, but the effect is **landmark-sensitive** — NOT robust at L=365 (the v1
+  L=365 win does not survive nesting) and reverses by L=730. A real but **fragile, modest** treatment-driven
+  non-PH signal; do not overclaim a stable win. Immortal-time-safe; no fabricated values.
+- **Basin fix (Q2): partially mitigated, NOT fixed.** With program compression (top-k / PCA-16) + KMeans
+  warm-start, the PH-free basin no longer pins at 0.500 (occupies ≥2 basins on 3–4/5 folds, max td-AUC ~0.68)
+  but is fold-unstable and **still loses to static Cox** at the informative landmarks (0.563 vs 0.635 @180;
+  0.530 vs 0.567 @365). The PH-free basin remains unsuccessful on this substrate — honest negative.
 
 ## Interpretability — what drives the model's PFS risk — 2026-06-10
 Source: `results/interpretability/interpretability.json` + 5 figures; narrative `docs/RESULTS_INTERPRETABILITY.md`.

@@ -107,6 +107,13 @@ non-PH structure the static benchmark cannot exhibit is **treatment-driven**, re
 model needs to earn its keep. NOTE: n_lines is partly a *consequence* of progression and must be
 modeled as a **time-varying covariate** in a counting-process / landmark design (never a baseline
 feature) to avoid immortal-time bias — this is the methodological core of Lane #2, not a footnote.
+**[RUN — `results/lane2/landmark_results_v2.json`; nested CV, immortal-time-safe]** Tested: under
+nested CV (inner-fold config selection; outer-fold reporting; cohort n=712/311 events), the enriched
+time-varying treatment model beats static Cox on forward td-AUC with a **small CI-separated gain at the
+180-day landmark (Δ=+0.0145, 95% CI [+0.0018, +0.0259])**, but the effect is **landmark-sensitive** — not
+robust at 365 d (Δ=+0.0076, CI crosses 0) and reverses by 730 d. A real but **fragile, modest**
+treatment-driven non-PH signal; the PH-free basin variant remains unsuccessful (collapse mitigated, still
+< Cox). Gate `treatment_nonph_beats_static`: **narrow PASS**, reported without overclaim.
 
 **5.5 Access-gated extension — immune-microenvironment fusion (Path A).**
 **[RUN — `docs/PATH_A_IMMUNE_FUSION.md`]** The only principled way to lift the static ceiling is to

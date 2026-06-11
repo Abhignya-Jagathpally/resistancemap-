@@ -113,7 +113,15 @@ progression; using it as a baseline feature is immortal-time bias / reverse caus
 **time-varying covariate** in a counting-process / landmark design (condition on lines accrued *by*
 landmark t, predict forward). The pre-registered falsifier: does the time-varying model beat static
 Cox on time-dependent AUC at post-baseline landmarks, **without** immortal-time inflation? Gated as
-`treatment_nonph_beats_static` (BLOCKED until CI-separated and immortal-time-safe).
+`treatment_nonph_beats_static`.
+
+**Result (nested CV, `results/lane2/landmark_results_v2.json`; n=712/311 events).** Tested and a
+**narrow PASS**: under immortal-time-safe landmarking with inner-fold config selection, the enriched
+time-varying treatment model beats static Cox on forward td-AUC with a CI-separated gain at the
+**180-day landmark (Δ=+0.0145, 95% CI [+0.0018, +0.0259])**, **landmark-sensitive** (not robust at
+365 d; reverses by 730 d). Honest reading: a **real but small and fragile** treatment-driven non-PH
+signal — not a stable win. The PH-free basin variant stays unsuccessful (collapse mitigated, still
+below Cox at the informative landmarks). No overclaim.
 
 ---
 

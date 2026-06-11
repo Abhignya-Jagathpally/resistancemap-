@@ -191,6 +191,90 @@ class TreatmentTimeline:
         last = started.loc[started["start_day"].idxmax()]
         return frozenset(last["classes"])
 
+    # ---- ENRICHED time-varying builders (Lane #2 v2) -----------------------
+    # All of the following are strictly backward-looking functions of an evaluation
+    # time ``t_days`` (the landmark), exactly like ``lines_accrued_by``: they count or
+    # describe only therapy-line history that had STARTED on/before ``t_days``. No future
+    # information enters, so they are immortal-time safe when evaluated at a landmark.
+
+    def n_switches_by(self, patient_id: str, t_days: float) -> int:
+        """Number of *therapy switches* (line transitions) that occurred on/before ``t``.
+
+        A switch is the start of a new line of therapy beyond the first. With L distinct
+        lines accrued by ``t``, there have been ``max(0, L - 1)`` switches. Monotone
+        non-decreasing in ``t``. Looks only backwards (uses ``lines_accrued_by``).
+        """
+        return max(0, self.lines_accrued_by(patient_id, t_days) - 1)
+
+    def escalated_by(self, patient_id: str, t_days: float) -> int:
+        """1 if the cumulative drug-CLASS set *grew* across accrued lines by ``t``, else 0.
+
+        "Escalation" here means a line that started on/before ``t`` introduced at least one
+        drug class not seen in the union of all *earlier* started lines. This captures
+        treatment intensification (e.g. adding CD38 mAb on relapse) without using future
+        information: it only inspects lines whose ``start_day <= t``. Returns 0 if zero or
+        one line has started (nothing to escalate from).
+        """
+        sub = self.patient(patient_id)
+        if sub.empty:
+            return 0
+        started = sub[sub["start_day"] <= float(t_days)].sort_values(["start_day", "line"])
+        if len(started) < 2:
+            return 0
+        seen: set[str] = set()
+        escalated = False
+        for _, row in started.iterrows():
+            cur = set(row["classes"])
+            if seen and (cur - seen):
+                escalated = True
+                break
+            seen |= cur
+        return int(escalated)
+
+    def n_distinct_classes_by(self, patient_id: str, t_days: float) -> int:
+        """Count of distinct drug classes used across all lines started on/before ``t``.
+
+        Monotone non-decreasing in ``t``; a coarse measure of cumulative treatment
+        breadth. Backward-looking only.
+        """
+        sub = self.patient(patient_id)
+        if sub.empty:
+            return 0
+        started = sub[sub["start_day"] <= float(t_days)]
+        if started.empty:
+            return 0
+        classes: set[str] = set()
+        for c in started["classes"]:
+            classes |= set(c)
+        return int(len(classes))
+
+    def enriched_covariates(self, patient_id: str, t_days: float) -> dict:
+        """Bundle the enriched, immortal-time-safe Z(L) scalars for one patient at ``t``.
+
+        Returns a dict with:
+            n_lines_accrued        : distinct lines started by t (monotone)
+            n_switches             : line transitions by t (= max(0, n_lines-1))
+            escalated              : 1 if cumulative class set grew by t, else 0
+            n_distinct_classes     : distinct drug classes used by t
+            time_since_switch_days : days since the most recent line start <= t
+        and one current-regimen-class membership flag ``cur_<CLASS>`` per canonical class.
+
+        These are the raw building blocks the v2 feature builder turns into model columns
+        (scaling, one-hots, and interaction terms are applied there). Every value is a
+        function of history <= t only.
+        """
+        cur = self.current_regimen_classes(patient_id, t_days)
+        out = {
+            "n_lines_accrued": float(self.lines_accrued_by(patient_id, t_days)),
+            "n_switches": float(self.n_switches_by(patient_id, t_days)),
+            "escalated": float(self.escalated_by(patient_id, t_days)),
+            "n_distinct_classes": float(self.n_distinct_classes_by(patient_id, t_days)),
+            "time_since_switch_days": float(self.time_since_last_switch(patient_id, t_days)),
+        }
+        for cls in DRUG_CLASS_ORDER:
+            out[f"cur_{cls}"] = 1.0 if cls in cur else 0.0
+        return out
+
 
 def build_timeline(table_or_df) -> TreatmentTimeline:
     """Construct a :class:`TreatmentTimeline` from an already-loaded raw frame.
