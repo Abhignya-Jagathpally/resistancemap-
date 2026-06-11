@@ -22,3 +22,19 @@ the genuine OOD signal is at the ceiling. **Caveat:** n=86, relapse-enriched, wi
 precise. **Next (Iter 2):** pivot — within-IA12 distribution-shift ROBUSTNESS (train on one ISS/cyto
 stratum, test on held-out strata; which method degrades least), then Iter 3 = distribution-free CONFORMAL
 survival with finite-sample coverage (the trustworthy-uncertainty contribution).
+
+## Iteration 2 — within-IA12 domain-generalization robustness  [no detectable degradation; honest]
+**Design:** partition IA12 by a shift variable held OUT of the feature set (amp1q±; ISS high/low); train
+GBS(programs-only) on source group, test on held-out target; degradation = in-dist CV − cross-group.
+`results/extval/iter2.json`.
+**Result:**
+- amp1q: train(amp1q−)→test(amp1q+) **0.679 [0.613, 0.745]** (vs in-dist 0.630 — no drop, larger source
+  set helps); train(amp1q+)→test(amp1q−) 0.581 (drop +0.009). gep70 ref: amp1q− 0.598, **amp1q+ 0.704**.
+- ISS: drops ±0.003 (none). gep70 ref: low 0.578, high 0.631.
+- **Worst-group degradation +0.009 → no detectable cross-stratum degradation.** The program
+  representation generalizes across cytogenetic/ISS strata without breaking.
+**Honest caveats:** wide CIs (small strata); everything in the ~0.58–0.68 band (little to degrade);
+**gep70 is equally robust and stronger in amp1q+ (0.704)** → no method robustly EXCEEDS gep70 under
+shift. Legitimate result: stratum-shift robustness characterized rigorously, not a discrimination win.
+**Next (Iter 3):** distribution-free CONFORMAL survival on IA12 — split-conformal + Mondrian
+(per-stratum) coverage; the trustworthy-uncertainty contribution with a finite-sample guarantee.
