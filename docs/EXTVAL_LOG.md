@@ -38,3 +38,19 @@ GBS(programs-only) on source group, test on held-out target; degradation = in-di
 shift. Legitimate result: stratum-shift robustness characterized rigorously, not a discrimination win.
 **Next (Iter 3):** distribution-free CONFORMAL survival on IA12 — split-conformal + Mondrian
 (per-stratum) coverage; the trustworthy-uncertainty contribution with a finite-sample guarantee.
+
+## Iteration 3 — distribution-free conformal survival intervals  [POSITIVE, honest]
+**Design:** target log(PFS days) for uncensored patients; Ridge predictor on gep70+ISS+top-20 programs;
+split-conformal (separate calibration set) for 90% intervals; Mondrian (per-ISS) for group-conditional
+coverage; 40 patient-disjoint splits. `results/extval/iter3.json`.
+**Result:**
+- **Marginal split-conformal coverage = 0.906 [0.819, 0.977]** — hits nominal 0.90; distribution-free
+  finite-sample guarantee holds. ✓
+- **Naive Gaussian intervals UNDER-cover at 0.765 [0.626, 0.896]** — overconfident by ~13 points;
+  conformal is necessary and restores validity. ✓
+- Per-stratum (high-ISS): marginal-q 0.902 vs Mondrian-q 0.909 — group-conditional coverage maintained.
+**Verdict: first clearly POSITIVE result.** Not a discrimination win (still ceiling-bound) but a genuine
+trustworthy-uncertainty contribution: valid distribution-free coverage where naive intervals fail.
+**Honest caveats:** intervals are wide (~3 log-day width ≈ 20× range — a calibrated expression of
+irreducible uncertainty, not a bug); target is uncensored-only (time-to-progression among progressors);
+coverage CI wide (modest n). **Next (Iter 4):** synthesize the extval direction (docs/EXTVAL_SYNTHESIS.md).
