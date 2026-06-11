@@ -36,3 +36,40 @@ one covariate without leakage — extraordinary claims need adversarial proof.
    recently-intensified = already-progressing patients.
 Only if the effect survives all four does it become a candidate claim; otherwise record as leakage and
 move to a genuinely different theory (Kalman state-space estimator or switched-system).
+
+---
+
+## Candidate mechanism backlog (prioritized, honest fit-triage) — added 2026-06-10
+User asked to broaden beyond control theory: diffusion, RLVR, spatio-temporal, ego-centric, similar.
+Triaged by (theory fit × open-data availability × ICLR/ICML relevance). The loop pulls from the top.
+
+**Tier 1 — test on the OPEN substrate, high fit (do these after Iter-2 verification):**
+- **Score-based / denoising DIFFUSION SDE on disease-state latents.** The existing basin-escape model
+  IS overdamped Langevin `dz=−∇U(z)dt+σdW`; learn the score ∇log p_t(z) with treatment-conditioned
+  drift; survival = first-passage of the diffusion into a resistance basin. Property: proper SDE /
+  Fokker–Planck grounding, generative + interpretable. Open data (mmSYGNAL latents + treatments.tsv).
+- **Neural CONTROLLED differential equation (Neural CDE) / signature features.** CDEs are control
+  theory for irregular time series: `dz = f_θ(z) dX(t)` driven by the treatment path X(t)=u(t). Exactly
+  the treatment-as-control formulation; path-signature features are a principled, fixed alternative.
+  Property: universal approximation for path-functionals; handles irregular sampling. Open data.
+- **Selective state-space (SSM / Mamba-style) hazard.** A modern, identifiable realization of the
+  linear state-space framing (Iter-1) with input-dependent dynamics. Property: linear-time, stable SSM.
+
+**Tier 2 — open data, moderate fit:**
+- **Hawkes / self-exciting point process** for the progression↔treatment feedback (relapse begets
+  line-switch begets relapse). Property: branching-process intensity; mechanistic for the non-PH.
+- **Ego-centric patient-similarity graph survival.** kNN ego-graph on the 141-program manifold (reuse
+  the PHATE embedding); graph-regularized / transductive Cox or a tiny GNN. Caveat: same features →
+  ceiling-limited; the contribution is the transductive/manifold angle, not new signal.
+
+**Tier 3 — needs data we do NOT have on the open substrate (DEFER, do not thrash):**
+- **RL / RLVR (treatment-policy track, not the prediction metric).** Fits optimal dynamic-treatment-
+  regime / counterfactual; but observational N~700, no exploration → OPE high-variance; "verifiable
+  reward" = the censored outcome is the hard part. Scope as a SEPARATE counterfactual track with OPE
+  safety gates (legacy repo has IQL/CQL/OPE), NOT as a PFS-discrimination claim.
+- **Spatio-temporal.** Bulk transcriptome has no spatial axis. Requires immune-atlas scRNA (Zenodo/VLAB
+  gated = Path A) or SegPC plasma-cell imaging (open Kaggle) — a separate imaging lane. Defer to when
+  that data lands; do not fake a spatial model on bulk data.
+
+**Selection rule for the loop:** prefer the Tier-1 mechanism with the cleanest mathematical property
+that a nested-CV ablation rewards; never adopt a Tier-3 mechanism on data that cannot support it.
