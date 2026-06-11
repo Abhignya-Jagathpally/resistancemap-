@@ -1,5 +1,10 @@
 # Figure guide — what each figure shows, how to read it, what it means
 
+> **This directory (`paper/figures/`) is the single consolidated bundle: all 14 figures + this
+> legend in one place.** Each entry's `Source:`/`Script:` line points to where the figure is
+> *generated* under `results/` (reproducible); the PNGs here are the curated submission copies,
+> co-located with their explanations (section headers match the filenames in this folder).
+
 Every figure below is generated from **real on-disk data** (no fabricated values) and every number
 cited here traces to a `results/*.json`. Endpoint is **progression-free survival (PFS)** unless a
 figure is explicitly the **overall-survival (OS)** secondary run. Reproduce with the script named
