@@ -95,3 +95,22 @@ the discipline caught the false positive. **Switch theory.**
 (the basin/Langevin connection `dz=−∇U(z)dt+σdW`), survival = first-passage into a resistance basin,
 treatment-conditioned drift. Evaluate honestly vs gep70/sky92 + Cox(ISS+gep70) with the same nested-CV,
 immortal-time-safe, guilty-until-proven-innocent protocol.
+
+---
+
+## Iteration 3 — score-based diffusion SDE on program latents  [honest parity-below, BLOCKED]
+**Did:** PCA(16) of the 141 programs → latent z; learned a potential U_θ(z) by denoising score matching
+(score s_θ=−∇U_θ); risk = inner-CV-selected energy U_θ(z) or ‖∇U_θ‖. 5-fold patient CV.
+`results/theory_loop/iter3.json`.
+**Result:** diffusion-energy C-index **0.570 [0.537, 0.603]** — above chance but BELOW SOTA (gep70
+0.624 / sky92 0.620); strong base ISS+gep70 0.653 → +diffusion 0.654 (**adds nothing**). Risk-type
+"energy+" selected every fold (atypical/low-density transcriptional states = higher risk — mild,
+interpretable, but not a SOTA-beater).
+**Verdict:** honest parity-below; the density-geometry of the *static* program latents carries only
+weak prognostic signal and does not break the ~0.62 ceiling — **as predicted for the static regime**.
+Gate BLOCKED. This is the **fifth** independent confirmation of the static ceiling (Cox, RSF, GBS,
+ResistanceBasin-LR, diffusion-energy). **Switch theory.**
+**Next (Iteration 4):** Tier-1 #2 — **Neural Controlled Differential Equation (Neural CDE) / path
+signature**, back in the treatment-conditioned regime (the only place Lane #2 found signal). Math:
+latent path dz = f_θ(z) dX(t) driven by the treatment control path X(t)=u(t) (regimen/line/switch
+events); hazard from z(L). Immortal-time-safe landmark; same guilty-until-proven-innocent gauntlet.
