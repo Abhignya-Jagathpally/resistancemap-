@@ -152,3 +152,6 @@ PENDING (your GPU box): real GDC-open run, scVI/MIOFlow (need torch), Gateway la
 
 ## Theory loop — CONVERGED (2026-06-10)
 Six theory families (LTI/SSM/diffusion/CDE/log-rank/graph) tie at the ~0.62-0.66 PFS ceiling; none beats Cox(ISS+gep70). Residual signal = power-limited ~+0.01 td-AUC treatment effect (Lane #2 CI-separated only @180d). Synthesis: docs/THEORY_LOOP_SYNTHESIS.md; per-iter: docs/THEORY_LOOP_LOG.md + results/theory_loop/. Gate beats_SOTA BLOCKED throughout (honest).
+
+## Ext-val direction — DELIVERED (2026-06-10)
+External-validation/robustness/calibration loop complete (docs/EXTVAL_SYNTHESIS.md + EXTVAL_LOG.md + results/extval/). (1) Leakage generalizes: GuanScore=1.000 OOD on IA18 too -> both published tables outcome-fit; genuine miner_risk 0.612 at ceiling. (2) Program model shift-robust across amp1q/ISS (worst-group degradation +0.009). (3) Conformal survival: valid 0.906 coverage (nominal 0.90) where naive under-covers 0.765. Contribution = trustworthy+generalizable forecasting, complementing the discrimination-ceiling result. No discrimination claim.
