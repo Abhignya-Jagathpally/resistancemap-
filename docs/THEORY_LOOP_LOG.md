@@ -137,3 +137,24 @@ distinct families (selective SSM; then Hawkes OR ego-centric patient-graph); if 
 adding mechanisms and synthesize the *multi-mechanism ceiling* as the contribution (a rigorous,
 method-family-spanning negative + the honest method scaffold + the access-gated immune-fusion path).
 **Next (Iteration 5):** Tier-1 #3 — selective state-space (SSM) hazard with input-dependent dynamics.
+
+---
+
+## Iteration 5 — selective diagonal SSM over treatment events  [honest negative, BLOCKED]
+**Did:** diagonal selective SSM `z_k=exp(−a·Δ_k)z_{k-1}+ι_k` (4 timescales + fast−slow velocity) over
+irregular treatment events to landmark L; tested vs strong baseline Cox(ISS+gep70). Nested CV,
+immortal-time-safe. `results/theory_loop/iter5.json`.
+**Result:** L=180 base 0.660 → +SSM 0.671, **Δ+0.011 [−0.016, +0.040]** (no separation); L=365 base
+0.619 → +SSM 0.603, Δ−0.015 [−0.035, +0.001] (null/worse). **SSM does NOT add over strong baseline.**
+**Verdict:** honest negative — the ceiling holds across the state-space family too. Gate BLOCKED.
+
+### Consolidated signature across treatment-conditioned mechanisms
+LTI (Iter1, +0.014 over strong / refuted), time-varying Cox (Lane #2, +0.0145), CDE-signature (Iter4,
++0.004), SSM (Iter5, +0.011): **all give a small POSITIVE point estimate (~+0.01–0.015 td-AUC) at
+L=180 that NEVER CI-separates, and go null/negative by L=365.** This is a precise, honest, ICLR-style
+statement: a real-but-sub-significant treatment-driven non-PH signal of ~+0.01 td-AUC at 6 months,
+below the detection threshold at N≈650 — a power limit, not a model limit. (Static families — Cox/RSF/
+GBS/log-rank-basin/diffusion — tie at ~0.62–0.66.)
+**Next (Iteration 6 — LAST mechanism before synthesis):** Tier-2 ego-centric patient-similarity GRAPH
+survival (kNN ego-graph on the program manifold; transductive/graph-regularized risk) — a distinct
+(graph) family to complete the method-family-spanning claim. Then SYNTHESIZE docs/THEORY_LOOP_SYNTHESIS.md.
