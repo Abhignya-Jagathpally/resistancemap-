@@ -114,3 +114,26 @@ ResistanceBasin-LR, diffusion-energy). **Switch theory.**
 signature**, back in the treatment-conditioned regime (the only place Lane #2 found signal). Math:
 latent path dz = f_θ(z) dX(t) driven by the treatment control path X(t)=u(t) (regimen/line/switch
 events); hazard from z(L). Immortal-time-safe landmark; same guilty-until-proven-innocent gauntlet.
+
+---
+
+## Iteration 4 — Neural-CDE / path-SIGNATURE of the treatment control path  [honest negative, BLOCKED]
+**Did:** built treatment control path X(t)=(t, cum_PI, cum_IMiD, cum_CD38) up to L; truncated signature
+S(X)^{≤2}; tested whether signature (and specifically LEVEL-2 = treatment ORDERING) adds over the
+strong baseline Cox(ISS+gep70). Immortal-time-safe landmark, nested CV. `results/theory_loop/iter4.json`.
+**Result (L=180, n=648/270 ev — the powered landmark):** base 0.660 → +sig1 0.662 → +sig12 0.663.
+Δsignature-over-base **+0.004 [−0.022, +0.032]** (no add); Δordering (level-2 over level-1)
+**+0.002 [−0.021, +0.027]** — **treatment ORDERING is not prognostic** for PFS here. (L=365: 20-feature
+signature Cox did not converge → NaN; robustness limitation, reported honestly.)
+**Verdict:** honest negative — the CDE/path-signature framing, including its novel non-commutative
+ordering content, adds nothing over Cox(ISS+gep70). Gate BLOCKED.
+
+### Emerging meta-result (after 4 iterations + Lanes B/C/D)
+No mechanism beats the strong baseline / published signatures: **static** (Cox, RSF, GBS, log-rank
+basin, diffusion-energy) all ~0.62–0.66; **treatment-conditioned** (LTI = leak/refuted, time-varying
+Cox = marginal/non-robust, CDE-signature = no add). The MM-PFS ceiling holds across control-theory,
+diffusion, CDE/signature, and clustering method families. **Convergence criterion:** run ≤2 more
+distinct families (selective SSM; then Hawkes OR ego-centric patient-graph); if they also tie, STOP
+adding mechanisms and synthesize the *multi-mechanism ceiling* as the contribution (a rigorous,
+method-family-spanning negative + the honest method scaffold + the access-gated immune-fusion path).
+**Next (Iteration 5):** Tier-1 #3 — selective state-space (SSM) hazard with input-dependent dynamics.
